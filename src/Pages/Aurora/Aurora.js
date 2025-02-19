@@ -12,7 +12,7 @@ const CreativeArtistView = () => {
       {/* Flower background */}
       <FlowerBackground />
       
-      <Title>Aurora B.</Title>
+      <Title>Liora</Title>
       
       <CustomTabBar>
         <TabLink to="/about">Om</TabLink>
