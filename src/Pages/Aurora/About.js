@@ -54,16 +54,17 @@ const Container = styled.div`
   border: 8px solid #000000;
   box-sizing: border-box;
   overflow-y: auto;
+  padding: 20px 40px 80px; /* Horisontal padding og plass til fast bottom navigation */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 80px; /* For å gi plass til fast bottom navigation */
 `;
 
 const FlowerBackground = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-image: url(${flows});
@@ -83,7 +84,8 @@ const Content = styled.div`
   position: relative;
   z-index: 1;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 150px auto 0 auto; /* Økt margin-top for å presse innholdet lenger ned */
+  padding: 20px;
 `;
 
 const ImageWrapper = styled.div`
@@ -112,7 +114,7 @@ const Title = styled.h1`
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 20px;
-
+  
   @media (max-width: 768px) {
     font-size: 40px;
   }
@@ -125,7 +127,7 @@ const Description = styled.p`
   font-size: 20px;
   line-height: 1.5;
   margin-bottom: 30px;
-
+  
   @media (max-width: 768px) {
     font-size: 18px;
   }
