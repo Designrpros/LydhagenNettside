@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import flowsUp from '../Images/flowsUp.png';  
 
-// Flower frame styled component (up) remains unchanged
+// Flower frame styled component remains mostly unchanged
 const FlowerFrameUp = styled.div`
   position: absolute;
   width: 100%;
@@ -12,10 +12,9 @@ const FlowerFrameUp = styled.div`
   background-size: contain;
   background-position: top center;
   filter: grayscale(100%) brightness(0) invert(0); 
-  z-index: 0;
 
   @media (max-width: 480px) {
-    background-size: 100%; /* Slightly adjust size on mobile */
+    background-size: 100%;
     background-position: top center;
   }
 `;
@@ -27,19 +26,28 @@ const Section2 = styled.div`
   z-index: 0;
 
   @media (max-width: 480px) {
-    height: 6vh;
+    height: 2vh;
     width: 100%;
   }
 `;
 
-// Container that wraps the main content and makes it build from the bottom up
+// Container that wraps the main content.
+// Use column-reverse for larger screens to keep desktop layout,
+// but switch to normal column ordering on mobile so the title and footer are visible.
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  min-height: 80vh; /* Ensures the container takes full viewport height */
+  min-height: 80vh;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    min-height: auto;
+  }
 `;
 
-// Second Section: Festival Information (unchanged in content)
+// Second Section: Festival Information
 const InfoSection2 = styled.section`
   display: flex;
   flex-direction: column;
@@ -52,15 +60,14 @@ const InfoSection2 = styled.section`
   overflow: hidden;
   z-index: 1;
   padding: 0 20px;
-  /* Further pull content upward and downward to close the gap */
   margin-top: -40px;
   margin-bottom: -40px;
 
   @media (max-width: 480px) {
-    height: 60vh;
-    padding: 0 10px;
-    margin-top: -30px;
-    margin-bottom: -30px;
+    height: auto;
+    padding: 20px 10px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 `;
 
@@ -99,7 +106,7 @@ const InfoDetails = styled.p`
   }
 `;
 
-// Footer remains unchanged
+// Footer remains mostly unchanged
 const Footer = styled.footer`
   background-color: #000;
   color: #ffffff;
@@ -126,7 +133,7 @@ const FestivalInfo = () => {
         <FlowerFrameUp />
       </Section2>
 
-      {/* ContentWrapper makes the content start from the bottom of the viewport */}
+      {/* ContentWrapper adjusts layout direction based on screen size */}
       <ContentWrapper>
         <InfoSection2>
           <InfoTitle2>Festival Information</InfoTitle2>
@@ -145,10 +152,10 @@ const FestivalInfo = () => {
               <li><strong>Kontakt oss:</strong> For mer informasjon, kontakt oss gjerne på: <a href="mailto:info@lydhagenfestival.com">info@lydhagenfestival.com</a></li>
             </ul>
           </InfoDetails>
-          <Footer>
+        </InfoSection2>
+        <Footer>
           <FooterText>© 2025 Studio 51</FooterText>
         </Footer>
-        </InfoSection2>
       </ContentWrapper>
     </>
   );

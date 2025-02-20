@@ -32,7 +32,7 @@ const Section1 = styled.div`
   z-index: 0;
 
   @media (max-width: 480px) {
-    height: 6vh;
+    height: 4vh;
   }
 `;
 
@@ -159,7 +159,7 @@ const FlowerFrame = styled.div`
   z-index: 0;
 
   @media (max-width: 480px) {
-    background-size: 100%;
+    background-size: 200%;
     background-position: top center;
   }
 `;
